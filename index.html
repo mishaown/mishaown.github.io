@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Minhazul Islam - Researcher & IT Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f8f7f4;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent: #2c2c2c;
+            --border: #e5e5e5;
+            --hover: #f5f5f5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border);
+            background-color: var(--bg-secondary);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-links a:hover {
+            color: var(--text-primary);
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: -0.01em;
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .profile-text {
+            flex: 1;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+            width: 240px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column-reverse;
+            }
+
+            .profile-image {
+                width: 200px;
+                margin: 0 auto;
+            }
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .expertise-item {
+            background: var(--bg-secondary);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .expertise-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .expertise-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 24px;
+            border-left: 2px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .timeline-content ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 6px;
+        }
+
+        .project-item {
+            background: var(--bg-secondary);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .project-item:hover {
+            border-color: var(--accent);
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-tech {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-category {
+            font-size: 0.95rem;
+        }
+
+        .skill-category strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .skill-category span {
+            color: var(--text-secondary);
+        }
+
+        .honours-list {
+            list-style: none;
+        }
+
+        .honours-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .honours-list li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>MD Minhazul Islam</h1>
+                    <p class="tagline">Researcher & IT Expert</p>
+                    <!-- <p style="color: var(--text-secondary); font-size: 0.95rem;">Chongqing, China</p> -->
+                    <div class="contact-links">
+                        <a href="mailto:mishaown@outlook.com">✉ Email</a>
+                        <a href="https://github.com/mishaown" target="_blank">⚡ GitHub</a>
+                        <a href="https://linkedin.com/in/md-minhazul-islam" target="_blank">⚡ LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=3wjC_6MAAAAJ&hl=en" target="_blank">⚡ Google Scholar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Profile</h2>
+                <div class="profile-section">
+                    <p class="profile-text">
+                        I am a graduate research assistant specializing in the application of deep learning techniques to remote sensing. My projects include semantic segmentation and change detection for landslides and floods, satellite imagery-based mapping, and medical image analysis. I am currently pursuing a Master of Science in Computer Technology at Chongqing University, China.
+                    </p>
+                    <div class="profile-image">
+                        <img src="shaown.jpg" alt="MD Minhazul Islam">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Areas of Expertise</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <h3>Remote Sensing & AI</h3>
+                        <p>Change Detection, Landslide/Flood Segmentation, Computer Vision</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h3>Deep Learning</h3>
+                        <p>CNNs, Transformers, Attention Models</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h3>ML Frameworks</h3>
+                        <p>PyTorch, TensorFlow, Scikit-learn</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h3>Full-Stack Development</h3>
+                        <p>MERN Stack (React.js, Node.js, MongoDB)</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h3>Mobile Development</h3>
+                        <p>Android (Java)</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h3>Core Computer Science</h3>
+                        <p>Data Structures, Algorithms, OOP, Problem Solving</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Education</h2>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">MSc in Computer Technology</div>
+                        <div class="timeline-date">Sep 2023 - Current</div>
+                    </div>
+                    <div class="timeline-subtitle">Chongqing University, Chongqing, China</div>
+                    <!-- <div class="timeline-content">
+                        Average Score:  | Expected Graduation: Jun 2026
+                    </div> -->
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">BSc in Computer Science and Technology</div>
+                        <div class="timeline-date">Sep 2017 - Jun 2021</div>
+                    </div>
+                    <div class="timeline-subtitle">Jiangxi Normal University, Nanchang, China</div>
+                    <!-- <div class="timeline-content">
+                        GPA: 
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Camera Measurement Intern</div>
+                        <div class="timeline-date">Jul 2024 - Sep 2024</div>
+                    </div>
+                    <div class="timeline-subtitle">Transsion Holdings, Chongqing, China</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Worked in the MT Department performing camera hardware testing and evaluating results for camera development</li>
+                            <li>Utilized Photoshop and Imatest for testing and analysis to support R&D</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Web Development and Optimization</div>
+                        <div class="timeline-date">Dec 2021 - Jun 2023</div>
+                    </div>
+                    <div class="timeline-subtitle">Freelance Work, Online and Local Platforms</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Developed and maintained e-commerce and news websites using WordPress</li>
+                            <li>Optimized WordPress platforms for performance and user experience</li>
+                            <li>Managed online monetization channels (Google AdSense and Instant Articles)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Academic Internship</div>
+                        <div class="timeline-date">Sep 2020 - Feb 2021</div>
+                    </div>
+                    <div class="timeline-subtitle">Jiangxi Normal University, Nanchang, China</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Assisted Prof. Wen Long Ni with research, documentation, and web development</li>
+                            <li>Contributed to authentication, authorization, URL queries, and security modules using Node.js, MongoDB, and Express.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <div class="project-title">DiGATe-UNet: Landslide Segmentation Deep Learning Model</div>
+                    <div class="project-tech">Python, PyTorch, Jupyter Notebook</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">E-Appointment REST API</div>
+                    <div class="project-tech">JavaScript, Node.js, Express, MongoDB</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Class Management System for University</div>
+                    <div class="project-tech">JavaScript, Node.js, Express, MongoDB, EJS</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Attendance Taker</div>
+                    <div class="project-tech">Java, XML, SQLite, Firebase</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Skills & Tools</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <strong>Development Environments</strong>
+                        <span>PyCharm, VS Code, Android Studio, Eclipse, NetBeans</span>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Databases</strong>
+                        <span>MySQL, MongoDB</span>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Tools</strong>
+                        <span>Git, Postman, MS Office, WPS Office</span>
+                    </div>
+                    <div class="skill-category">
+                        <strong>Design</strong>
+                        <span>Adobe Photoshop, Canva, Draw.io</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Honours & Leadership</h2>
+                <ul class="honours-list">
+                    <li>Chongqing University President's Scholarship (2023-2026)</li>
+                    <li>Jiangxi Provincial Government Scholarship (2017-2021)</li>
+                    <li>Volunteer, Apnar Mask Kothay Campaign 2020 (Bangladesh)</li>
+                    <li>Administrator, Computer Club for International Students, Jiangxi Normal University</li>
+                    <li>Vice President, Bangladeshi Students Association, Jiangxi Normal University</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Languages</h2>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    <strong style="color: var(--text-primary);">Mother tongue:</strong> Bengali<br>
+                    <strong style="color: var(--text-primary);">Other languages:</strong> English, Hindi, Chinese
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MD Minhazul Islam. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
